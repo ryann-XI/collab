@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cerita Dongeng & Gambar</title>
+
+<style>
+    html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  flex: 1; /* membuat konten utama mengisi ruang sisa */
+}
+
+footer {
+  background-color: #3498db;
+  color: white;
+  text-align: center;
+  padding: 15px 0;
+}
+    body {
+        font-family: Arial, sans-serif;
+        background: #f0f4ff;
+        margin: 0;
+        padding: 0;
+    }
+    header {
+        background: #3498db;
+        padding: 15px;
+        color: white;
+        text-align: center;
+    }
+    .container {
+        max-width: 900px;
+        margin: auto;
+        background: white;
+        padding: 20px;
+        border-radius: 12px;
+        margin-top: 20px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+    
+    h2, h3 {
+        margin-top: 0;
+    }
+    .image-box {
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    .image-box img {
+        max-width: 30%;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+    .story {
+        line-height: 1.7;
+        font-size: 17px;
+        color: #333;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 25px;
+    }
+    table, th, td {
+        border: 1px solid #888;
+    }
+    th {
+        background: #3498db;
+        color: white;
+        padding: 10px;
+        text-align: left;
+    }
+    td {
+        padding: 10px;
+    }
+    .btn-back {
+        padding: 10px 20px;
+        background: #3498db;
+        color: white;
+        text-decoration: none;
+        border-radius: 6px;
+        font-size: 16px;
+    }
+    .btn-back:hover {
+        background: #2980b9;
+    }
+</style>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        tampilkanKomentar();
+    });
+
+    function kirimRating() {
+        let nama = document.getElementById("nama2").value;
+        let komentar = document.getElementById("komentar2").value;
+        let rating = parseInt(document.getElementById("rating2").value);
+
+        if (nama === "" || komentar === "") {
+            alert("Nama dan komentar harus diisi!");
+            return;
+        }
+
+        let data = JSON.parse(localStorage.getItem("rating_data_cerita2")) || [];
+
+        data.push({
+            nama: nama,
+            komentar: komentar,
+            rating: rating
+        });
+
+        localStorage.setItem("rating_data_cerita2", JSON.stringify(data));
+
+        let ratings = data.map(item => item.rating);
+        localStorage.setItem("rating_cerita2", JSON.stringify(ratings));
+
+        let total = ratings.reduce((a, b) => a + b, 0);
+        let avg = (total / ratings.length).toFixed(2);
+        localStorage.setItem("rating_avg_cerita2", avg);
+
+        tampilkanKomentar();
+
+        document.getElementById("nama2").value = "";
+        document.getElementById("komentar3").value = "";
+        document.getElementById("rating2").value = "1";
+
+        alert("Terima kasih! Rating dan komentar berhasil disimpan.");
+    }
+
+    function tampilkanKomentar() {
+        let box = document.getElementById("listKomentar2");
+        let data = JSON.parse(localStorage.getItem("rating_data_cerita2")) || [];
+
+        box.innerHTML = "";
+
+        data.forEach(item => {
+            box.innerHTML += `
+                <div style="background:white; padding:10px; margin-bottom:10px; border-radius:6px;">
+                    <b>${item.nama}</b> – Rating: ${item.rating} ★<br>
+                    <i>${item.komentar}</i>
+                </div>
+            `;
+        });
+    }
+</script>
+</head>
+
+<body>
+
+<header>
+    <h1>BAB JINA</h1>
+</header>
+
+<div class="container">
+
+    <div class="image-box">
+        <img src="1.jpg">
+    </div>
+    <h2>Cerkak Akibate Jina</h2>
+
+    <div class="story">
+
+        <p>
+            Ing desa Krajan, Ratri lan Sutrisno urip prasaja nanging rukun. Sutrisno kerja saben dina ing sawah kanggo nyukupi kabutuhan omah. Ratri biyasane mbantu ibune ngolah jajanan kanggo didol.
+        </p>
+
+        <p>
+            Sawijining dina ana wong anyar teka ing desa. Jenenge Rangga, wongé pinter ngomong lan kerep gawe akeh warga kagum. Rangga kerep liwat ngarep omahe Ratri nalika Sutrisno lagi kerja.
+        </p>
+
+        <p>
+            Suwe-suwe, Rangga mulai menehi perhatian lan pujian marang Ratri. Ratri sing kadhang ngrasakake kurang diperhatikan bojone, dadi kepengaruh omongan manis kuwi tanpa sadar.
+        </p>
+
+        <p>
+            Sawijining wengi, Bu Lurah weruh Ratri lagi ngobrol karo Rangga ing pojokan pasar. Ora ana tumindak ora pantes, nanging obrolan kasebut wis ora layak kanggo wanita sing wis omah-omah. Bu Lurah banjur menehi pitutur marang Ratri supaya eling lan waspada.
+        </p>
+
+        <p>
+            Esuke, kabar obrolan kuwi nyebar. Sutrisno sedih nanging milih ngomong apik marang Ratri. Ratri banjur nyadari yen dheweke meh mlebu jurang kesalahan, lan banjur janji ora bakal ngidini wong liya mlebu ing atine.
+        </p>
+
+        <h3>Amanat</h3>
+        <p>
+            - Jina ora tansah awujud tumindak fisik, nanging bisa dimulai saka ati lan pikiran.<br>
+            - Godaan saka njaba kudu diwaspadai amarga bisa ngrusak omah tangga.<br>
+            - Kejujuran lan komunikasi iku pondasi utama hubungan.<br>
+            - Omongan manis ora mesthi tandha rasa tulus.
+        </p>
+        <h3>Paraga, Latar, Alur, lan Tokoh</h3>
+
+        <table>
+            <tr>
+                <th>Jenis</th>
+                <th>Isi</th>
+            </tr>
+
+            <tr>
+                <td><b>Paraga</b></td>
+                <td>
+                    <b>Ratri:</b> Wanita ayu, gampang kepengaruh.<br>
+                    <b>Sutrisno:</b> Bojone Ratri, jujur lan sayang kulawarga.<br>
+                    <b>Rangga:</b> Wong anyar sing pinter ngrayu lan ndadekake masalah.<br>
+                    <b>Bu Lurah:</b> Wong sepuh sing bijaksana lan menehi pitutur.
+                </td>
+            </tr>
+
+            <tr>
+                <td><b>Latar</b></td>
+                <td>
+                    <b>Papan:</b> Desa Krajan.<br>
+                    <b>Wektu:</b> Mangsa panen, awan lan wengi.<br>
+                    <b>Sosial:</b> Warga rukun nanging gampang kaget yen ana sing nglanggar norma.
+                </td>
+            </tr>
+
+            <tr>
+                <td><b>Alur</b></td>
+                <td>
+                    Alur maju: Cerita dimulai saka Ratri kepengaruh Rangga, diwenehi pitutur Bu Lurah, Sutrisno sedih, lan pungkasane Ratri sadar lan bali menyang lakuning bener.
+                </td>
+            </tr>
+
+            <tr>
+                <td><b>Tokoh</b></td>
+                <td>
+                    Tokoh utama: Ratri<br>
+                    Tokoh tambahan: Sutrisno, Rangga, Bu Lurah
+                </td>
+            </tr>
+        </table>
+
+    </div>
+
+    <br>
+
+<h3>Berikan Komentar & Rating</h3>
+
+<div id="ratingBox2" style="margin-top:15px;">
+
+    <label><b>Nama:</b></label><br>
+    <input type="text" id="nama2" placeholder="Masukkan nama..." 
+           style="width:100%;padding:8px;margin-bottom:10px;">
+
+    <label><b>Komentar:</b></label><br>
+    <textarea id="komentar2" placeholder="Tulis komentar..." 
+              style="width:100%;height:80px;padding:8px;margin-bottom:10px;"></textarea>
+
+    <label><b>Pilih Rating:</b></label><br>
+    <select id="rating2" style="padding:8px;width:120px;margin-bottom:10px;">
+        <option value="1">1 ★</option>
+        <option value="2">2 ★★</option>
+        <option value="3">3 ★★★</option>
+        <option value="4">4 ★★★★</option>
+        <option value="5">5 ★★★★★</option>
+    </select>
+    <br>
+
+    <button onclick="kirimRating()" 
+            style="padding:10px 20px;background:#3498db;color:white;border:none;border-radius:6px;font-size:16px;">
+        Kirim
+    </button>
+
+</div>
+
+<hr>
+
+<h3>Daftar Komentar</h3>
+<div id="listKomentar2" style="padding:10px;background:#eef5ff;border-radius:8px;"></div>
+
+<br>
+
+<div>
+    <a href="index.html" class="btn-back">Kembali</a>
+</div>
+</div>
+
+
+<footer>
+  &copy; 2025 Ryan.XI RPL II
+</footer>
+</body>
+</html>
