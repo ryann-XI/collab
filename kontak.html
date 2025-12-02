@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Halaman Kontak</title>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background: #f2f6ff;
+    }
+
+    .container {
+        width: 90%;
+        max-width: 900px;
+        margin: 30px auto;
+        background: white;
+        padding: 25px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #2a4d9c;
+    }
+
+    .contact-section {
+        margin-bottom: 30px;
+    }
+
+    .contact-card {
+        background: #eef3ff;
+        padding: 15px;
+        border-radius: 8px;
+        margin-bottom: 15px;
+        border-left: 5px solid #2a4d9c;
+    }
+
+    .contact-card h3 {
+        margin-top: 0;
+    }
+
+    form label {
+        display: block;
+        margin: 8px 0 5px;
+    }
+
+    form input, form textarea {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    textarea {
+        height: 130px;
+        resize: none;
+    }
+
+    button {
+        margin-top: 15px;
+        padding: 12px 20px;
+        background: #2a4d9c;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        width: 100%;
+        font-size: 16px;
+    }
+
+    button:hover {
+        background: #1f3973;
+    }
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>Kontak Pembuat Website</h1>
+
+    <!-- Kontak Orang 1 -->
+    <div class="contact-section">
+        <div class="contact-card">
+            <h3>📌 Person 1</h3>
+            <p><strong>Nama:</strong> Muhammad Mahofi Marchel</p>
+            <p><strong>Email:</strong> mmahofi231@gmail.com</p>
+            <p><strong>Whatsapp:</strong> +62 852-3144-2649</p>
+        </div>
+
+        <!-- Kontak Orang 2 -->
+        <div class="contact-card">
+            <h3>📌 Person 2</h3>
+            <p><strong>Nama:</strong> Ryan Firmansyah</p>
+            <p><strong>Email:</strong>Ryan@gmail.com</p>
+            <p><strong>Whatsapp:</strong> +62 897-7253-799</p>
+        </div>
+    </div>
+
+    <hr>
+
+    <!-- Form Saran / Laporan -->
+    <h2>Formulir Saran & Laporan Bug</h2>
+
+    <form>
+        <label for="nama">Nama Anda:</label>
+        <input type="text" id="nama" placeholder="Masukkan nama Anda">
+
+        <label for="email">Email Anda:</label>
+        <input type="email" id="email" placeholder="Masukkan email Anda">
+
+        <label for="pesan">Saran atau Laporan:</label>
+        <textarea id="pesan" placeholder="Tulis saran atau laporan Anda di sini"></textarea>
+
+        <button type="submit">Kirim</button>
+    </form>
+</div>
+<script>
+    const form = document.querySelector("form");
+
+    form.addEventListener("submit", function(event) {
+        event.preventDefault(); // Mencegah reload bawaan form
+
+        alert("Pesan Anda sudah disampaikan!");
+
+        // Arahkan kembali ke index.html
+        window.location.href = "index.html";
+    });
+</script>
+</body>
+</html>
