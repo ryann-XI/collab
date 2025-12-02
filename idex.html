@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Web Cerita Cerkak</title>
+</head>
+
+<style>
+    html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  flex: 1; /* membuat konten utama mengisi ruang sisa */
+}
+
+footer {
+  background-color: #3498db;
+  color: white;
+  text-align: center;
+  padding: 15px 0;
+}
+  body {
+    margin: auto;
+    font-family: Arial, sans-serif;
+  }
+
+  .topbar {
+    background-color: #3498db;
+    color: white;
+    padding: 14px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.sys img{
+  width: 60px;
+    height: 60px;
+    border-radius: 24px;
+    object-fit: cover;
+  
+}
+/* Styling dasar logo */
+.logo {
+  font-size: 35px;
+  font-weight: 700;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid white; /* garis kursor */
+  width: 0; /* akan diperluas saat animasi */
+  animation: typing 2s steps(10, end) forwards, blink 0.7s step-end infinite alternate;
+}
+
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 160px; }
+}
+
+
+@keyframes blink {
+  from { border-color: #3498db; }
+  to { border-color: transparent; }
+}
+    
+  
+  
+
+  .top-actions {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .dropdown-colored {
+    padding: 6px 10px;
+    border-radius: 5px;
+    border: none;
+    background-color: #1d6fa5;
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+  }
+
+  .search-container {
+    margin: 15px 25px;
+  }
+
+  .search-box {
+    width: 97%;
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid #999;
+    font-size: 16px;
+  }
+
+  .item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #efefef;
+    padding: 20px;
+    border-radius: 20px;
+    text-decoration: none;
+    color: black;
+    margin-bottom: 20px;
+    margin: 18px 25px;
+  }
+
+  .thumbnail img {
+    width: 90px;
+    height: 90px;
+    border-radius: 16px;
+    object-fit: cover;
+  }
+  .rating-display {
+    margin-top: 6px;
+    font-size: 16px;
+    color: #f1c40f;
+    font-weight: bold;
+  }
+
+  .rating-none {
+    margin-top: 6px;
+    font-size: 14px;
+    color: #666;
+    font-style: italic;
+  }
+  .btn-contact {
+    display: inline-block;
+    background-color: #1d6fa5; 
+    color: white;
+    text-decoration: none;
+    padding: 8px 20px;
+    border-radius: 6px; 
+    font-weight: bold;
+    font-size: 14px;
+    transition: 0.2s;
+}
+
+.btn-contact:hover {
+    background-color: #1d6fa5;
+}
+.kategori-filter {
+  margin: 15px 25px;
+}
+
+.kategori-filter .tag {
+  display: inline-block;
+  background-color: #3498db;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  margin-right: 5px;
+  cursor: pointer;
+  font-size: 0.9em;
+}
+
+.kategori-filter .tag:hover {
+  background-color: #2980b9;
+}
+
+.kategori-cerita .tag {
+  display: inline-block;
+  background-color: #f39c12;
+  color: white;
+  padding: 3px 8px;
+  border-radius: 5px;
+  margin-top: 5px;
+  font-size: 0.8em;
+}
+</style>
+
+<body>
+
+  <header class="topbar">
+         
+    <div class="brand">
+       <div class="sys"><img src="l.jpg"></div>
+      <div class="logo">Cerkak.ID</div>
+    </div>
+    <div class="top-actions">
+      <label for="bahasa"><b>Bahasa :</b></label>
+      <select id="bahasa" name="bahasa" class="dropdown-colored">
+        <option value="1">Indonesia</option>
+      </select>
+      <a href="kontak.html" class="btn-contact">Kontak</a>
+    </div>
+  </header>
+<div>
+<h1><b><center>SUGENG RAWUH ING</center></b></h1>
+  <h2><b>
+      <center>BERANDA</center>
+    </b></h2>
+  </div>
+
+  <div class="search-container">
+    <input type="text" id="searchInput" class="search-box" placeholder="Golek Cerito... (contoh: cerkak tentang merokok)">
+  </div>
+  
+  
+<center><div class="kategori-filter">
+  <span class="tag" onclick="filterCerita('all')">Semua</span>
+   <span class="tag" onclick="filterCerita('Pendidikan')">Pendidikan</span>
+  <span class="tag" onclick="filterCerita('Drama')">Drama</span>
+  <span class="tag" onclick="filterCerita('Komedi')">Komedi</span>
+  <span class="tag" onclick="filterCerita('Romantis')">Romantis</span>
+</div></center>
+
+
+<a href="narkoba.html" class="item" data-title="bahaya narkoba" data-kategori="Pendidikan">
+  <div class="meta">
+    <h3 class="title">Bahaya e Narkoba</h3>
+    <div class="sub">Cerkak · 1 Desember 2025 · 16:17 WIB</div>
+    <p>Rating: <span id="rate"></span> ★</p>
+      <div class="kategori-cerita">
+    <span class="tag">Pendidikan</span>
+  </div>
+  </div>
+  <div class="rating-display" id="rating_cerita1_display"></div>
+
+  <div class="thumbnail">
+    <img src="2.jpg">
+  </div>
+</a>
+
+
+<a href="zina.html" class="item" data-title="Akibate Jina" data-kategori="Pendidikan">
+  <div class="meta">
+    <h3 class="title">Akibate Jina</h3>
+    <div class="sub">Cerkak · 1 Desember 2025 · 16:17 WIB</div>
+    <p>Rating: <span id="rate2"></span> ★</p>
+     <div class="kategori-cerita">
+    <span class="tag">Pendidikan</span>
+  </div>
+  <div class="rating-display" id="rating_cerita2_display"></div>
+ 
+  </div>
+  <div class="thumbnail">
+    <img src="1.jpg">
+  </div>
+</a>
+<div class="container">
+  <!-- Semua konten halaman di sini -->
+</div>
+
+<footer>
+  &copy;  2025 Ryan.XI RPL II
+</footer>
+  </div>
+
+  <script>
+function filterCerita(kategori) {
+  const items = document.querySelectorAll(".item");
+  items.forEach(item => {
+    if (kategori === 'all' || item.dataset.kategori === kategori) {
+      item.style.display = 'flex';
+    } else {
+      item.style.display = 'none';
+    }
+  });
+}
+  document.getElementById("rate").innerText = 
+        localStorage.getItem("rating_avg_cerita1") || "0";
+  document.getElementById("rate2").innerText = 
+        localStorage.getItem("rating_avg_cerita2") || "0";
+    const input = document.getElementById("searchInput");
+    const items = document.querySelectorAll(".item");
+
+    input.addEventListener("keyup", function () {
+      let filter = input.value.toLowerCase();
+
+      items.forEach(item => {
+        let title = item.dataset.title.toLowerCase();
+        item.style.display = title.includes(filter) ? "flex" : "none";
+      });
+    });
+  </script>
+
+</body>
+
+</html>
